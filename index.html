@@ -99,87 +99,219 @@
   <script>
     // DEMO DATA ONLY. Replace with verified listings.
     const opportunities = [
+  // Source: https://www.sfmfoodbank.org/volunteer/
   {
     name: "SF-Marin Food Bank — Pennsylvania Warehouse",
     category: "Community",
-    age: 10,
-    location: "Potrero Hill, San Francisco",
-    description: "Pack grocery boxes and sort produce or donations. Minimum age is 10 on weekdays and 8 on Saturdays, but individual shifts may have different rules. Minors may need an accompanying adult.",
-    url: "https://volunteering.sfmfoodbank.org/agency/detail/?agency_id=109763"
+    age: 8,
+    location: "Potrero Hill",
+    description: "Repack food, sort produce, and prepare grocery boxes and bags. Minimum age is 10 on weekdays and 8 on Saturdays, so check the specific shift before registering.",
+    url: "https://www.sfmfoodbank.org/volunteer/"
   },
+
+  // Source: https://www.sfmfoodbank.org/volunteer/
   {
     name: "SF-Marin Food Bank — Illinois Warehouse",
     category: "Community",
     age: 11,
-    location: "Dogpatch, San Francisco",
-    description: "Help sort food and prepare groceries for neighbors. Listed minimum age is 11. Check each shift for supervision requirements and availability.",
+    location: "Dogpatch",
+    description: "Help sort produce, repackage food, and prepare groceries for neighbors at the Marin Street/Illinois Street warehouse. Minimum age is 11.",
     url: "https://www.sfmfoodbank.org/volunteer/"
   },
+
+  // Source: https://www.sfmfoodbank.org/volunteer/
+  // Parent/guardian accompaniment: minors must be accompanied by an adult.
   {
     name: "SF-Marin Food Bank — Community Markets",
     category: "Community",
     age: 11,
-    location: "Various San Francisco locations",
-    description: "Help neighbors shop for groceries by stocking shelves, greeting visitors, and assisting with distribution. Ages 11+. Volunteers under 18 must be accompanied by an adult.",
-    url: "https://www.sfmfoodbank.org/programs/community-markets/"
+    location: "Citywide",
+    description: "Help greet shoppers, stock food, assist with intake, loading, and grocery distribution at Community Markets. Volunteers must be 11+ and minors must be accompanied by an adult.",
+    url: "https://www.sfmfoodbank.org/volunteer/"
   },
+
+  // Source: https://www.glide.org/volunteer/
+  // Parent/guardian requirement: minors need a signed youth waiver.
+  {
+    name: "GLIDE — Youth Community & Meal Service",
+    category: "Community",
+    age: 10,
+    location: "Tenderloin",
+    description: "Support GLIDE community service such as Free Daily Meals and youth service-learning projects. Youth ages 10+ can participate; minors need a parent or legal guardian to sign the required waiver.",
+    url: "https://www.glide.org/volunteer/"
+  },
+
+  // Source: https://www.openhand.org/volunteer/individual-volunteer
+  {
+    name: "Project Open Hand — Kitchen Volunteer",
+    category: "Healthcare",
+    age: 15,
+    location: "Tenderloin / Civic Center",
+    description: "Help assemble, package, and prepare nutritious meals for clients. Volunteers must be 15+, provide a recent TB test, and commit to a weekly shift for three months or 40 hours per semester for students.",
+    url: "https://www.openhand.org/volunteer/individual-volunteer"
+  },
+
+  // Source: https://www.openhand.org/volunteer/individual-volunteer
+  {
+    name: "Project Open Hand — Grocery Center Volunteer",
+    category: "Healthcare",
+    age: 15,
+    location: "Tenderloin / Civic Center",
+    description: "Sort and pack food or help provide clients with their weekly groceries. Volunteers must be 15+, provide a recent TB test, and make the program's weekly service commitment.",
+    url: "https://www.openhand.org/volunteer/individual-volunteer"
+  },
+
+  // Source: https://www.openhand.org/volunteer/individual-volunteer
+  {
+    name: "Project Open Hand — Meal Site Volunteer",
+    category: "Healthcare",
+    age: 15,
+    location: "Tenderloin / Civic Center",
+    description: "Help create a welcoming meal environment for senior clients and adults with disabilities. Minimum age is 15, with a recent TB test and a three-month weekly commitment or 40 student hours per semester.",
+    url: "https://www.openhand.org/volunteer/individual-volunteer"
+  },
+
+  // Source: https://www.stanthonysf.org/faq/
+  // Parent/guardian accompaniment required for volunteers under age 15.
+  {
+    name: "St. Anthony's — Dining Room Volunteer",
+    category: "Community",
+    age: 13,
+    location: "Tenderloin",
+    description: "Help prepare and serve meals in St. Anthony's Dining Room. Minimum age is 13; volunteers under 15 must be accompanied by an adult, and orientation applies to volunteers planning five or more shifts.",
+    url: "https://www.stanthonysf.org/volunteer/"
+  },
+
+  // Source: https://www.stanthonysf.org/faq/
+  // Parent/guardian accompaniment required for volunteers under age 15.
+  {
+    name: "St. Anthony's — Free Clothing Program",
+    category: "Community",
+    age: 14,
+    location: "Tenderloin",
+    description: "Help sort clothing and assist guests using St. Anthony's Free Clothing Program. Minimum age is 14; a 14-year-old must be accompanied by an adult.",
+    url: "https://www.stanthonysf.org/volunteer/"
+  },
+
+  // Source: https://www.stanthonysf.org/faq/
+  // Orientation applies when committing to five or more shifts.
+  {
+    name: "St. Anthony's — Tenderloin Technology Lab",
+    category: "Education",
+    age: 16,
+    location: "Tenderloin",
+    description: "Assist community members with basic computer and technology questions. Minimum age is 16; volunteers planning five or more shifts must complete St. Anthony's volunteer orientation.",
+    url: "https://www.stanthonysf.org/volunteer/"
+  },
+
+  // Source: https://alemanyfarm.org/get-involved/
+  {
+    name: "Alemany Farm — Farm Volunteer Day",
+    category: "Community",
+    age: 0,
+    location: "Alemany / Bernal Heights",
+    description: "Help with planting, harvesting, weeding, composting, and other urban-farm projects. Volunteers of all ages are welcome; first-time volunteers should register and complete the farm's liability-waiver process.",
+    url: "https://alemanyfarm.org/get-involved/"
+  },
+
+  // Source: https://alemanyfarm.org/get-involved/
+  {
+    name: "Alemany Farm — Native Plant Volunteer Day",
+    category: "Community",
+    age: 0,
+    location: "Alemany / Bernal Heights",
+    description: "Help care for native plants and habitat at Alemany Farm during designated native-plant workdays. All ages are welcome; registration and the volunteer waiver requirements apply.",
+    url: "https://alemanyfarm.org/get-involved/"
+  },
+
+  // Source: https://sfpl.org/teens/volunteer-job-opportunities
+  // Training required: 7–8 hours plus fingerprinting/background check.
   {
     name: "SF Public Library — FOG Readers Tutor",
     category: "Education",
     age: 15,
-    location: "San Francisco Public Library branches",
-    description: "Tutor a student in grades 1–4 using a structured reading curriculum. Select volunteers ages 15+ are eligible. Requires training, fingerprinting, and a six-month commitment.",
+    location: "Citywide / SFPL",
+    description: "Tutor a student in grades 1–4 through SFPL's structured literacy program. Select volunteers 15+ must commit for at least six months, complete 7–8 hours of training, prepare weekly, and complete fingerprinting/background screening.",
     url: "https://sfpl.org/locations/main-library/bridge-main-5th-floor/fog-readers/fog-readers-tutor"
   },
+
+  // Source: https://randallmuseum.org/volunteer/
+  // Training required: animal-care specialists train accepted teen volunteers.
   {
-    name: "SF Public Library — Teen-Led Programs",
-    category: "Education",
-    age: 15,
-    location: "San Francisco Public Library",
-    description: "Propose a workshop or activity for your community. Open to ages 15–18. Submit your idea at least four months ahead; the library reviews proposals before approval.",
-    url: "https://sfpl.org/teens/volunteer-job-opportunities/teen-led-programs"
-  },
-  {
-    name: "GLIDE — Community Volunteer",
+    name: "Randall Museum — Teen Animal Care Program",
     category: "Community",
-    age: 9,
-    location: "Tenderloin, San Francisco",
-    description: "Help support GLIDE's community programs, including meal service. Youth ages 9+ are welcome. Everyone under 18 needs a parent- or guardian-signed minor waiver.",
-    url: "https://www.glide.org/volunteer/"
+    age: 13,
+    location: "Corona Heights",
+    description: "Assist with native-wildlife husbandry, enclosure cleaning, diet preparation, enrichment, and visitor interaction. The program is for ages 13–17, includes animal-care training, and asks volunteers to participate for a full year.",
+    url: "https://randallmuseum.org/volunteer/"
   },
+
+  // Source: https://randallmuseum.org/volunteer/
   {
-    name: "Friends of Alemany Farm — Farm Volunteer",
+    name: "Randall Museum — Native Pollinator Garden Volunteer",
     category: "Community",
     age: 0,
-    location: "Alemany Farm, San Francisco",
-    description: "Help grow food through planting, harvesting, composting, and other farm projects. All ages are welcome. Register before your first workday and check requirements for minors.",
-    url: "https://alemanyfarm.org/get-involved/"
+    location: "Corona Heights",
+    description: "Help water, weed, propagate, and plant in the Randall Museum's Native Pollinator Garden. The museum states that volunteers of all ages can participate; contact the facility coordinator to apply.",
+    url: "https://randallmuseum.org/volunteer/"
   },
+
+  // Source: https://randallmuseum.org/volunteer/
+  // On-site training is provided.
   {
-    name: "Visitacion Valley Greenway — Community Garden",
+    name: "Randall Museum — Special Event Volunteer",
     category: "Community",
-    age: 0,
-    location: "Visitacion Valley, San Francisco",
-    description: "Join community gardening workdays. All ages and skill levels are welcome. The official page lists Wednesday and Saturday volunteer hours; check before visiting.",
-    url: "https://www.sfrecpark.org/Facilities/Facility/Details/Visitacion-Valley-Greenway-Agriculture-L-407"
+    age: 16,
+    location: "Corona Heights",
+    description: "Help with event setup, cleanup, games, crafts, sales, and visitor activities at museum community events. Volunteers 16+ are welcome, a minimum three-hour shift is required, and on-site training is provided.",
+    url: "https://randallmuseum.org/volunteer/"
   },
+
+  // Source: https://www.sfanimalcare.org/volunteer/
+  // Parent/guardian accompaniment REQUIRED for ages 12–17.
   {
     name: "SF Animal Care & Control — Parent/Teen Volunteer Team",
     category: "Community",
     age: 12,
-    location: "San Francisco Animal Care & Control",
-    description: "Volunteer with a parent or legal guardian in eligible animal-care positions. Ages 12–17 may join parent/child teams. Training and a one-year commitment are required.",
+    location: "Mission / Potrero Hill",
+    description: "Youth ages 12–17 may volunteer in eligible Animal Care & Control roles only while serving with a parent or legal guardian. Role-specific duties, training, and current openings vary, so review the official volunteer page before applying.",
     url: "https://www.sfanimalcare.org/volunteer/"
   },
+
+  // Source: https://www.parksconservancy.org/programs/san-francisco-habitat-stewards
+  // Parent/guardian approval required on the form for volunteers under 18.
   {
-    name: "Golden Gate National Parks — Habitat Restoration",
+    name: "Golden Gate National Parks — San Francisco Habitat Stewards",
+    category: "Community",
+    age: 0,
+    location: "Lands End / Presidio / Fort Funston / Baker Beach",
+    description: "Restore coastal habitat by planting, weeding, watering, spreading mulch, and removing debris at rotating San Francisco national-park sites. All ages are welcome; under-18 volunteers need parent/guardian approval and youth under 15 must follow the youth guidelines.",
+    url: "https://www.parksconservancy.org/programs/san-francisco-habitat-stewards"
+  },
+
+  // Source: https://www.parksconservancy.org/programs/ocean-beach-clean-ups
+  // Parent/guardian approval required on the form for volunteers under 18.
+  {
+    name: "Golden Gate National Parks — Ocean Beach Clean-up",
+    category: "Community",
+    age: 10,
+    location: "Ocean Beach / Outer Sunset",
+    description: "Remove litter and debris to protect Ocean Beach and its coastal habitat during monthly cleanups. The detailed age rules list volunteers 10+; registration is required and minors need parent/guardian approval on the volunteer form.",
+    url: "https://www.parksconservancy.org/programs/ocean-beach-clean-ups"
+  },
+
+  // Source: https://www.parksconservancy.org/programs/black-point-historic-gardens
+  // Tools and on-site training are provided.
+  {
+    name: "Golden Gate National Parks — Black Point Historic Gardens",
     category: "Community",
     age: 15,
-    location: "Various San Francisco park sites",
-    description: "Help remove invasive plants, restore native habitats, and care for park landscapes. Some events accept ages 15+. Check the specific event's minimum age, permission form, and available dates.",
-    url: "https://www.parksconservancy.org/volunteer/habitat-restoration-volunteering"
+    location: "Fort Mason / Marina",
+    description: "Restore historic gardens through weeding, pruning, planting, and invasive-species removal at East Black Point. Volunteers must be 15+ and register in advance; no experience is required and training and tools are provided.",
+    url: "https://www.parksconservancy.org/programs/black-point-historic-gardens"
   }
 ];
+
 
     const results = document.getElementById("results");
 
