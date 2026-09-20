@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SF Serve</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f8ff;
+      color: #18243a;
+    }
+    header {
+      background: #173b80;
+      color: white;
+      padding: 20px;
+    }
+    nav, main {
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 { font-size: 38px; margin-bottom: 8px; }
+    main { padding: 30px 18px; }
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+    input, select {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 16px;
+      margin-bottom: 15px;
+      border: 1px solid #e2e8f0;
+    }
+    .tag {
+      color: #2563eb;
+      font-weight: bold;
+    }
+    .button {
+      display: inline-block;
+      background: #173b80;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav><strong>SF SERVE 🤝</strong></nav>
+  </header>
+
+  <main>
+    <h1>Find your next opportunity.</h1>
+    <p>Discover volunteer opportunities for San Francisco teens.</p>
+
+    <div class="filters">
+      <input id="search" placeholder="Search opportunities...">
+
+      <select id="age">
+        <option value="14">I'm 14</option>
+        <option value="15" selected>I'm 15</option>
+        <option value="16">I'm 16</option>
+        <option value="17">I'm 17</option>
+        <option value="18">I'm 18+</option>
+      </select>
+
+      <select id="category">
+        <option value="All">All interests</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Education">Education</option>
+        <option value="Community">Community</option>
+      </select>
+    </div>
+
+    <h2>Explore opportunities</h2>
+    <div id="results"></div>
+  </main>
+
+  <footer>Made for SF teens • SF Serve</footer>
+
+  <script>
+    // DEMO DATA ONLY. Replace with verified listings.
+    const opportunities = [
+      {
+        name: "Example: Library Tutor",
+        category: "Education",
+        age: 14,
+        location: "San Francisco",
+        description: "Help younger students learn.",
+        url: ""
+      },
+      {
+        name: "Example: Food Bank Volunteer",
+        category: "Community",
+        age: 15,
+        location: "San Francisco",
+        description: "Support community food programs.",
+        url: ""
+      },
+      {
+        name: "Example: Hospital Volunteer",
+        category: "Healthcare",
+        age: 16,
+        location: "San Francisco",
+        description: "Explore hospital volunteering.",
+        url: ""
+      }
+    ];
+
+    const results = document.getElementById("results");
+
+    function displayOpportunities() {
+      const search = document.getElementById("search")
+        .value.toLowerCase();
+      const age = Number(document.getElementById("age").value);
+      const category = document.getElementById("category").value;
+
+      const matches = opportunities.filter(item => {
+        return item.age <= age &&
+          (category === "All" || item.category === category) &&
+          (item.name + " " + item.description)
+            .toLowerCase().includes(search);
+      });
+
+      results.replaceChildren();
+
+      if (matches.length === 0) {
+        results.textContent = "No matching opportunities found.";
+        return;
+      }
+
+      matches.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const tag = document.createElement("p");
+        tag.className = "tag";
+        tag.textContent = item.category;
+
+        const title = document.createElement("h3");
+        title.textContent = item.name;
+
+        const details = document.createElement("p");
+        details.textContent =
+          item.location + " • Minimum age: " + item.age;
+
+        const description = document.createElement("p");
+        description.textContent = item.description;
+
+        card.append(tag, title, details, description);
+
+        if (item.url) {
+          const link = document.createElement("a");
+          link.className = "button";
+          link.href = item.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "Apply on official website";
+          card.append(link);
+        }
+
+        results.append(card);
+      });
+    }
+
+    document.getElementById("search")
+      .addEventListener("input", displayOpportunities);
+
+    document.getElementById("age")
+      .addEventListener("change", displayOpportunities);
+
+    document.getElementById("category")
+      .addEventListener("change", displayOpportunities);
+
+    displayOpportunities();
+  </script>
+</body>
+</html>
